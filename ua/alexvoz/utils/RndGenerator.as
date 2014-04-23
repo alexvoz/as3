@@ -14,7 +14,7 @@ package ua.alexvoz.utils {
 		}
 		
 		/**
-		 * Генерирует значение, которого нет в указаном массиве 
+		 * Генерирует значение, которого нет в указанном массиве 
 		 */
 		public static function generateValueNotInArray(from:int = 0, to:int = 0, arr:Array = null):int {
 			var _rnd:int;
@@ -26,7 +26,7 @@ package ua.alexvoz.utils {
 		/**
 		* Генерирует последовательность случайных уникальных (без повторений) значений
 		*/
-		public static function generateSequenceWithoutDublicates(from:int = 0, to:int = 0, count:int = 0):Array {
+		public static function generateSequenceWithoutDuplicates(from:int = 0, to:int = 0, count:int = 0):Array {
 			var _rnd:int;
 			var _arr:Array = [];
 			var _fl:Boolean;
@@ -38,7 +38,7 @@ package ua.alexvoz.utils {
 			return _arr;
 		}
 		
-		//public static function generateSequenceWithoutDublicatesNotSeries(from:int = 0, to:int = 0, count:int = 0):Array {
+		//public static function generateSequenceWithoutDuplicatesNotSeries(from:int = 0, to:int = 0, count:int = 0):Array {
 			//var _rnd:int;
 			//var _arr:Array = [];
 			//var _fl:Boolean;
@@ -59,7 +59,7 @@ package ua.alexvoz.utils {
 		/** 
 		 * Генерирует последовательность случайных велечин, в которой соседние элементы не повторяются
 		 */ 
-		public static function geterateSequenceNotSeries(from:int = 0, to:int = 0, count:int = 0):Array {
+		public static function generateSequenceNotSeries(from:int = 0, to:int = 0, count:int = 0):Array {
 			var _rnd:int;
 			var _arr:Array = [];
 			_rnd = from + Math.round(Math.random() * (to - from));
@@ -75,7 +75,7 @@ package ua.alexvoz.utils {
 		/**
 		 * Генерирует последовательность случайных величин
 		 */ 
-		public static function geterateSequence(from:int = 0, to:int = 0, count:int = 0):Array {
+		public static function generateSequence(from:int = 0, to:int = 0, count:int = 0):Array {
 			var _rnd:int;
 			var _arr:Array = [];
 			for (var i:int = 0; i < count; i++) {
@@ -88,7 +88,7 @@ package ua.alexvoz.utils {
 		/**
 		 * Генерирует случайную величину, отличное от второго параметра
 		 */ 
-		public static function geterateValue(from:int = 0, to:int = 0, value:int = 0):int {
+		public static function generateValue(from:int = 0, to:int = 0, value:int = 0):int {
 			var _rnd:int;
 			do _rnd = from + Math.round(Math.random() * (to - from));
 				while (_rnd == value);
