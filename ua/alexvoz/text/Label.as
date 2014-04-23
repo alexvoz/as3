@@ -45,7 +45,7 @@ package ua.alexvoz.text {
 					this.autoSize = TextFieldAutoSize.NONE;
 					break;
 				default:
-					trace('Dont correct autoSize parametr');
+					trace('Incorrect autoSize parametr');
 					this.autoSize = TextFieldAutoSize.LEFT;
 					break;
 			}

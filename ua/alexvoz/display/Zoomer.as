@@ -3,7 +3,7 @@ package ua.alexvoz.display {
 	import flash.display.Stage;
 	import flash.events.Event;
 	import flash.geom.Rectangle;
-	import caurina.transitions.Tweener;
+	import com.greensock.TweenLite
 	
 	/**
 	 * ...
@@ -15,7 +15,9 @@ package ua.alexvoz.display {
 	 */
 
 	public class Zoomer extends MovieClip {
-		public static var STAGE:Stage
+		public static var STAGE:Stage;
+		public static var TIME_ANIM:Number = 1;
+		static private var _globalScale:Number;
 		
 		public function Zoomer() {
 			
@@ -36,7 +38,7 @@ package ua.alexvoz.display {
 		static public function moveToCentre(mc:MovieClip, rect:Rectangle = null, tween:Boolean = false):void {
 			if (rect == null) rect = new Rectangle(0, 0, STAGE.stageWidth, STAGE.stageHeight);
 			if (tween) {
-				Tweener.addTween(mc, { x:(rect.x + rect.width / 2 - mc.width / 2), y:(rect.y + rect.height / 2 - mc.height / 2), time:1 } )
+				TweenLite.to(mc, TIME_ANIM, { x:(rect.x + rect.width / 2 - mc.width / 2), y:(rect.y + rect.height / 2 - mc.height / 2) } );
 			} else {
 				mc.x = rect.x + rect.width / 2 - mc.width / 2;
 				mc.y = rect.y + rect.height / 2 - mc.height / 2;
@@ -59,7 +61,6 @@ package ua.alexvoz.display {
 			if (rect == null) rect = new Rectangle(0, 0, STAGE.stageWidth, STAGE.stageHeight);
 			if (centerX == -1000) centerX = rect.x + rect.width / 2;
 			if (centerY == -1000) centerY = rect.y + rect.height / 2;
-			var _globalScale:Number;
 			if (size == 'max') _globalScale = Math.max((rect.width) / (mc.width / mc.scaleX), (rect.height) / (mc.height / mc.scaleY));
 			if (size == 'min') _globalScale = Math.min((rect.width) / (mc.width / mc.scaleX), (rect.height) / (mc.height / mc.scaleY));
 			var _scale:Number = _globalScale * scale;
@@ -78,7 +79,7 @@ package ua.alexvoz.display {
 				_needY += (rect.y + rect.height / 2 - STAGE.mouseY);
 			}
 			if (tween) {
-				Tweener.addTween(mc, { width:_needW, height:_needH, x:_needX, y:_needY, time:1, onUpdate:function():void { moveToPlace(mc, rect) } } );
+				TweenLite.to(mc, TIME_ANIM, { width:_needW, height:_needH, x:_needX, y:_needY, onUpdate:function():void { moveToPlace(mc, rect) } } );
 			} else {
 				mc.width = _needW;
 				mc.height = _needH;
@@ -95,12 +96,16 @@ package ua.alexvoz.display {
 			var _x:Number = rect.width / 2 - ((mc.x + mc.width / 2) * _scale);
 			var _y:Number = rect.height / 2 - ((mc.y + mc.height / 2) * _scale);
 			if (tween) {
-				Tweener.addTween(container, { x:_x, y:_y, scaleX:_scale, scaleY:_scale, time:1 } )
+				TweenLite.to(container, TIME_ANIM, { x:_x, y:_y, scaleX:_scale, scaleY:_scale } );
 			} else {
 				container.x = _x;
 				container.y = _y;
 				container.scaleX = container.scaleY = _scale;
 			}
+		}
+		
+		static public function get globalScale():Number {
+			return _globalScale;
 		}
 		
 	}

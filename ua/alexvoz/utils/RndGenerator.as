@@ -16,7 +16,7 @@ package ua.alexvoz.utils {
 		/**
 		 * Генерирует значение, которого нет в указаном массиве 
 		 */
-		public static function ganerateValueNotInArray(from:int = 0, to:int = 0, arr:Array = null):int {
+		public static function generateValueNotInArray(from:int = 0, to:int = 0, arr:Array = null):int {
 			var _rnd:int;
 			do _rnd = from + Math.round(Math.random() * (to - from));
 				while (arr.indexOf(_rnd) != -1);
