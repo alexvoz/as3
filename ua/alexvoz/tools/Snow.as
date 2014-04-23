@@ -33,7 +33,7 @@ package ua.alexvoz.tools {
 			_snowWidth = w;
 			_snowHeight = h;
 			if (stage) addedHandler(null)
-				else addEventListener(Event.ADDED_TO_STAGE, addedHandler);
+			else addEventListener(Event.ADDED_TO_STAGE, addedHandler);
 		}
 		
 		private function addedHandler(e:Event):void {
@@ -43,9 +43,9 @@ package ua.alexvoz.tools {
 		public function run():void {
 			for (var i:Number = 0; i < _count; i++) {
 				var _do:DisplayObject = new _snowClass();
-				if (_do is MovieClip) 
-					try { if (_do['totalFrames'] > 1) _do['gotoAndStop'](Math.round(Math.random() * _do['totalFrames']));
-					} catch (e:Error) { trace(e.message) };
+				var _doMc:MovieClip = _do as MovieClip;
+				if (_doMc && _doMc.totalFrames > 1)
+					_doMc.gotoAndStop(Math.round(Math.random() * _doMc.totalFrames));
 				var _mc:MovieClip = new MovieClip();
 				_mc.addChild(_do);
 				_mc.x = _mc.initX = Math.round(Math.random() * _snowWidth);
