@@ -17,11 +17,7 @@ package ua.alexvoz.display {
 	public class Zoomer extends MovieClip {
 		public static var STAGE:Stage;
 		public static var TIME_ANIM:Number = 1;
-		static private var _globalScale:Number;
-		
-		public function Zoomer() {
-			
-		}
+		private static var _globalScale:Number;
 		
 		static public function moveToPlace(mc:MovieClip, rect:Rectangle = null):void {
 			if (rect == null) rect = new Rectangle(0, 0, STAGE.stageWidth, STAGE.stageHeight);
@@ -35,7 +31,7 @@ package ua.alexvoz.display {
 			} else mc.y = rect.y +  rect.height / 2 - mc.height / 2;
 		}
 		
-		static public function moveToCentre(mc:MovieClip, rect:Rectangle = null, tween:Boolean = false):void {
+		static public function moveToCenter(mc:MovieClip, rect:Rectangle = null, tween:Boolean = false):void {
 			if (rect == null) rect = new Rectangle(0, 0, STAGE.stageWidth, STAGE.stageHeight);
 			if (tween) {
 				TweenLite.to(mc, TIME_ANIM, { x:(rect.x + rect.width / 2 - mc.width / 2), y:(rect.y + rect.height / 2 - mc.height / 2) } );
@@ -57,7 +53,7 @@ package ua.alexvoz.display {
 		 * @param	centerX - центр масштабирования по Х
 		 * @param	centerY - центр масштабирования по Y
 		 */
-		static public function changeScale(mc:MovieClip, size:String = 'max', scale:Number = 1, rect:Rectangle = null, tween:Boolean = false, centrToCur:Boolean = false, moveToCur:Boolean = false, centerX:Number = -1000, centerY:Number = -1000):void {
+		static public function setScale(mc:MovieClip, size:String = 'max', scale:Number = 1, rect:Rectangle = null, tween:Boolean = false, centrToCur:Boolean = false, moveToCur:Boolean = false, centerX:Number = -1000, centerY:Number = -1000):void {
 			if (rect == null) rect = new Rectangle(0, 0, STAGE.stageWidth, STAGE.stageHeight);
 			if (centerX == -1000) centerX = rect.x + rect.width / 2;
 			if (centerY == -1000) centerY = rect.y + rect.height / 2;
