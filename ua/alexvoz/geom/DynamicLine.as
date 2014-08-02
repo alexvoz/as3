@@ -6,7 +6,7 @@ package ua.alexvoz.geom  {
 	/**
 	 * ...
 	 * @author ALeXVoz 
-	 * http://alex.spbdio.com/
+	 * http://alexvoz.net/
 	 * E-mail: alexvoz@mail.ru
 	 * ICQ: 232-8-393-12
 	 * Skype: alexvozn
