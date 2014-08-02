@@ -8,17 +8,17 @@ package ua.alexvoz.timer {
 	 * ICQ: 232-8-393-12
 	 * Skype: alexvozn
 	 */
-	public class ExtendedTimerEvent extends Event {
+	public class ExtendedTimerEvents extends Event {
 		
 		public static const COMPLETE:String = "complete";
 		public static const TICK:String = "tick";
 		
-		public function ExtendedTimerEvent(type:String) {
+		public function ExtendedTimerEvents(type:String) {
 			super(type, false, false);
 		}
 		
 		public override function clone():Event { 
-			return new ExtendedTimerEvent(type);
+			return new ExtendedTimerEvents(type);
 		} 
 	  
 		public override function toString():String { 

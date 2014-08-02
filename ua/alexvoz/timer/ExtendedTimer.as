@@ -12,8 +12,8 @@ package ua.alexvoz.timer {
 	 * Skype: alexvozn
 	 */
 	
-	[Event(name = "complete", type = "ua.alexvoz.timer.ExtendedTimerEvent")]
-	[Event(name = "tick", type = "ua.alexvoz.timer.ExtendedTimerEvent")]
+	[Event(name = "complete", type = "ua.alexvoz.timer.ExtendedTimerEvents")]
+	[Event(name = "tick", type = "ua.alexvoz.timer.ExtendedTimerEvents")]
 
 	public class ExtendedTimer extends EventDispatcher {
 		private var _startTime:int;
@@ -36,21 +36,21 @@ package ua.alexvoz.timer {
 			_timer.reset();
 			if (!_isInfinitely) _repeatCount--;
 			if (_isInfinitely || _repeatCount > 0) {
-				dispatchEvent(new ExtendedTimerEvent(ExtendedTimerEvent.TICK));
+				dispatchEvent(new ExtendedTimerEvents(ExtendedTimerEvents.TICK));
 				_timer.delay = _delay;
 				_timer.repeatCount = 1;
 				_timer.start();
 			} else {
-				dispatchEvent(new ExtendedTimerEvent(ExtendedTimerEvent.COMPLETE));
+				dispatchEvent(new ExtendedTimerEvents(ExtendedTimerEvents.COMPLETE));
 			}
 		}
 		
-		public function startTimer():void {
+		public function start():void {
 			_timer.start();
 			_startTime = getTimer();
 		}
 		
-		public function pauseTimer():void {
+		public function pause():void {
 			if (!_paused) {
 				_paused = true;
 				_timer.reset();
@@ -59,7 +59,7 @@ package ua.alexvoz.timer {
 			}
 		}
 		
-		public function resumeTimer():void {
+		public function resume():void {
 			if (_paused) {
 				_paused = false;
 				_startTime += getTimer() - _pauseTime;
@@ -67,7 +67,7 @@ package ua.alexvoz.timer {
 			}
 		}
 		
-		public function stopTimer():void {
+		public function stop():void {
 			_timer.stop();
 		}
 		
@@ -98,6 +98,14 @@ package ua.alexvoz.timer {
 		
 		public function get paused():Boolean {
 			return _paused;
+		}
+		
+		public function get startTime():int {
+			return _startTime;
+		}
+		
+		public function get runingTime():int {
+			return getTimer() - _startTime;
 		}
 		
 	}
