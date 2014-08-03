@@ -104,7 +104,7 @@ package ua.alexvoz.timer {
 			return _startTime;
 		}
 		
-		public function get runingTime():int {
+		public function get runningTime():int {
 			return getTimer() - _startTime;
 		}
 		
