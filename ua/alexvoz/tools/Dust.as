@@ -43,16 +43,16 @@ package ua.alexvoz.tools {
 				_mc.addChild(_particle);
 				_mc.alpha = randomValue(_minAlpha, _maxAlpha);
 				_mc.width = _mc.height = randomValue(_minSize, _maxSize);
-				_mc.x = Math.round(randomValue(0, _width));
-				_mc.y = Math.round(randomValue(0, _height));
+				_mc.x = randomValue(0, _width);
+				_mc.y = randomValue(0, _height);
 				_mc.direction = randomValue(0, 360);
 				_mc.speed = randomValue(_minSpeed, _maxSpeed);
 				addChild(_mc);
 			}
-			addEventListener(Event.ENTER_FRAME, exitFrame);
+			addEventListener(Event.ENTER_FRAME, moveParticles);
 		}
 		
-		private function exitFrame(e:Event):void {
+		private function moveParticles(e:Event):void {
 			for (var i:int = 0; i < this.numChildren; i++) {
 				var _mc:MovieClip = this.getChildAt(i) as MovieClip;
 				var _rad:Number = (_mc.direction * Math.PI) / 180;
