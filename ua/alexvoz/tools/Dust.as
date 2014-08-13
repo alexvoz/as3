@@ -57,11 +57,11 @@ package ua.alexvoz.tools {
 		}
 		
 		public function stop():void {
+			removeEventListener(Event.ENTER_FRAME, moveParticles);
 			for (var i:int = 0; i < _vecParticles.length; i++) {
 				removeChild(_vecParticles[i]);
 			}
 			_vecParticles = new Vector.<ParticleCont>();
-			removeEventListener(Event.ENTER_FRAME, moveParticles);
 		}
 		
 		private function moveParticles(e:Event):void {
