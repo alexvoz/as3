@@ -1,0 +1,205 @@
+Afghanistan	AF	AFG	4	AS
+Albania	AL	ALB	8	EU
+Algeria	DZ	DZA	12	AF
+Andorra	AD	AND	20	EU
+Angola	AO	AGO	24	AF
+Antarctica	AQ	ATA	10	AN
+Antigua and Barbuda	AG	ATG	28	NA
+Argentina	AR	ARG	32	SA
+Armenia	AM	ARM	51	AS
+Australia	AU	AUS	36	OC
+Austria	AT	AUT	40	EU
+Azerbaijan	AZ	AZE	31	AS
+Bahamas	BS	BHS	44	NA
+Bahrain	BH	BHR	48	AS
+Bangladesh	BD	BGD	50	AS
+Barbados	BB	BRB	52	NA
+Belgium	BE	BEL	56	EU
+Belize	BZ	BLZ	84	NA
+Benin	BJ	BEN	204	AF
+Bermuda	BM	BMU	60	NA
+Bhutan	BT	BTN	64	AS
+Bolivia	BO	BOL	68	SA
+Bosnia and Herzegovina	BA	BIH	70	EU
+Botswana	BW	BWA	72	AF
+Brazil	BR	BRA	76	SA
+Brunei Darussalam	BN	BRN	96	AS
+Bulgaria	BG	BGR	100	EU
+Burkina Faso	BF	BFA	854	AF
+Burundi	BI	BDI	108	AF
+Belarus	BY	BLR	112	EU
+Cambodia	KH	KHM	116	AS
+Cayman Islands	KY	CYM	136	NA
+Cameroon	CM	CMR	120	AF
+Canada	CA	CAN	124	NA
+Cape Verde	CV	CPV	132	AF
+Central African Republic	CF	CAF	140	AF
+Chad	TD	TCD	148	AF
+Chile	CL	CHL	152	SA
+China	CN	CHN	156	AS
+Colombia	CO	COL	170	SA
+Comoros	KM	COM	174	AF
+Congo	CG	COG	178	AF
+Costa Rica	CR	CRI	188	NA
+Cote d'Ivoire	CI	CIV	384	AF
+Croatia	HR	HRV	191	EU
+Cuba	CU	CUB	192	NA
+Cyprus	CY	CYP	196	AS
+Czech Republic	CZ	CZE	203	EU
+Denmark	DK	DNK	208	EU
+Djibouti	DJ	DJI	262	AF
+Dominica	DM	DMA	212	NA
+Dominican Republic	DO	DOM	214	NA
+Ecuador	EC	ECU	218	SA
+Egypt	EG	EGY	818	AF
+El Salvador	SV	SLV	222	NA
+Equatorial Guinea	GQ	GNQ	226	AF
+Eritrea	ER	ERI	232	AF
+Estonia	EE	EST	233	EU
+Ethiopia	ET	ETH	231	AF
+Falkland Islands (Malvinas)	FK	FLK	238	SA
+Faroe Islands	FO	FRO	234	EU
+Fiji	FJ	FJI	242	OC
+Finland	FI	FIN	246	EU
+France	FR	FRA	250	EU
+French Guiana	GF	GUF	254	SA
+French Polynesia	PF	PYF	258	OC
+Gabon	GA	GAB	266	AF
+Gambia	GM	GMB	270	AF
+Georgia	GE	GEO	268	AS
+Germany	DE	DEU	276	EU
+Ghana	GH	GHA	288	AF
+Greece	GR	GRC	300	EU
+Greenland	GL	GRL	304	NA
+Grenada	GD	GRD	308	NA
+Guadeloupe	GP	GLP	312	NA
+Guatemala	GT	GTM	320	NA
+Guinea	GN	GIN	324	AF
+Guinea-Bissau	GW	GNB	624	AF
+Guyana	GY	GUY	328	SA
+Haiti	HT	HTI	332	NA
+Honduras	HN	HND	340	NA
+Hong Kong	HK	HKG	344	AS
+Hungary	HU	HUN	348	EU
+Iceland	IS	ISL	352	EU
+India	IN	IND	356	AS
+Indonesia	ID	IDN	360	AS
+Iran	IR	IRN	364	AS
+Iraq	IQ	IRQ	368	AS
+Ireland	IE	IRL	372	EU
+Isle of Man	IM	IMN	833	EU
+Israel	IL	ISR	376	AS
+Italy	IT	ITA	380	EU
+Jamaica	JM	JAM	388	NA
+Japan	JP	JPN	392	AS
+Jordan	JO	JOR	400	AS
+Kazakhstan	KZ	KAZ	398	AS
+Kenya	KE	KEN	404	AF
+Kiribati	KI	KIR	296	OC
+Korea	KP	PRK	408	AS
+Korea	KR	KOR	410	AS
+Kuwait	KW	KWT	414	AS
+Kyrgyz Republic	KG	KGZ	417	AS
+Laos	LA	LAO	418	AS
+Latvia	LV	LVA	428	EU
+Lebanon	LB	LBN	422	AS
+Lesotho	LS	LSO	426	AF
+Liberia	LR	LBR	430	AF
+Libya	LY	LBY	434	AF
+Liechtenstein	LI	LIE	438	EU
+Lithuania	LT	LTU	440	EU
+Luxembourg	LU	LUX	442	EU
+Macao	MO	MAC	446	AS
+Macedonia	MK	MKD	807	EU
+Madagascar	MG	MDG	450	AF
+Malawi	MW	MWI	454	AF
+Malaysia	MY	MYS	458	AS
+Maldives	MV	MDV	462	AS
+Mali	ML	MLI	466	AF
+Malta	MT	MLT	470	EU
+Martinique	MQ	MTQ	474	NA
+Mauritania	MR	MRT	478	AF
+Mauritius	MU	MUS	480	AF
+Mexico	MX	MEX	484	NA
+Moldova	MD	MDA	498	EU
+Monaco	MC	MCO	492	EU
+Mongolia	MN	MNG	496	AS
+Morocco	MA	MAR	504	AF
+Mozambique	MZ	MOZ	508	AF
+Myanmar	MM	MMR	104	AS
+Namibia	NA	NAM	516	AF
+Nepal	NP	NPL	524	AS
+Netherlands	NL	NLD	528	EU
+New Caledonia	NC	NCL	540	OC
+New Zealand	NZ	NZL	554	OC
+Nicaragua	NI	NIC	558	NA
+Niger	NE	NER	562	AF
+Nigeria	NG	NGA	566	AF
+Northern Mariana Islands	MP	MNP	580	OC
+Norway	NO	NOR	578	EU
+Oman	OM	OMN	512	AS
+Pakistan	PK	PAK	586	AS
+Panama	PA	PAN	591	NA
+Papua New Guinea	PG	PNG	598	OC
+Paraguay	PY	PRY	600	SA
+Peru	PE	PER	604	SA
+Philippines	PH	PHL	608	AS
+Poland	PL	POL	616	EU
+Portugal	PT	PRT	620	EU
+Puerto Rico	PR	PRI	630	NA
+Qatar	QA	QAT	634	AS
+Reunion	RE	REU	638	AF
+Romania	RO	ROU	642	EU
+Russian Federation	RU	RUS	643	AS
+Rwanda	RW	RWA	646	AF
+San Marino	SM	SMR	674	EU
+Sao Tome and Principe	ST	STP	678	AF
+Saudi Arabia	SA	SAU	682	AS
+Senegal	SN	SEN	686	AF
+Seychelles	SC	SYC	690	AF
+Sierra Leone	SL	SLE	694	AF
+Singapore	SG	SGP	702	AS
+Slovakia	SK	SVK	703	EU
+Slovenia	SI	SVN	705	EU
+Solomon Islands	SB	SLB	90	OC
+Somalia	SO	SOM	706	AF
+South Africa	ZA	ZAF	710	AF
+Spain	ES	ESP	724	EU
+Sri Lanka	LK	LKA	144	AS
+Saint Kitts and Nevis	KN	KNA	659	NA
+Saint Lucia	LC	LCA	662	NA
+Saint Vincent and the Grenadines	VC	VCT	670	NA
+Sudan	SD	SDN	736	AF
+Suriname	SR	SUR	740	SA
+Svalbard	SJ	SJM	744	EU
+Swaziland	SZ	SWZ	748	AF
+Sweden	SE	SWE	752	EU
+Switzerland	CH	CHE	756	EU
+Syria	SY	SYR	760	AS
+Taiwan	TW	TWN	158	AS
+Tajikistan	TJ	TJK	762	AS
+Tanzania	TZ	TZA	834	AF
+Thailand	TH	THA	764	AS
+Togo	TG	TGO	768	AF
+Tonga	TO	TON	776	OC
+Trinidad and Tobago	TT	TTO	780	NA
+Tunisia	TN	TUN	788	AF
+Turkey	TR	TUR	792	AS
+Turkmenistan	TM	TKM	795	AS
+Turks and Caicos Islands	TC	TCA	796	NA
+Uganda	UG	UGA	800	AF
+Ukraine	UA	UKR	804	EU
+United Arab Emirates	AE	ARE	784	AS
+United Kingdom	GB	GBR	826	EU
+United States of America	US	USA	840	NA
+Uruguay	UY	URY	858	SA
+Uzbekistan	UZ	UZB	860	AS
+Vanuatu	VU	VUT	548	OC
+Venezuela	VE	VEN	862	SA
+Vietnam	VN	VNM	704	AS
+Western Sahara	EH	ESH	732	AF
+Samoa	WS	WSM	882	OC
+Yemen	YE	YEM	887	AS
+Serbia	RS	SRB	688	EU
+Zambia	ZM	ZMB	894	AF
+Zimbabwe	ZW	ZWE	716	AF
