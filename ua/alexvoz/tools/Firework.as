@@ -15,30 +15,26 @@ package ua.alexvoz.tools {
 	 * Skype: alexvozn
 	 */
 	public class Firework extends Sprite {
-		private var _particleClass:Class = Particle;
-		private var _countMax:int = 50;
-		private var _baseAngle:Number = -90;
-		private var _ampAngle:Number = 180;
-		private var _speedMin:Number = 1;
-		private var _speedMax:Number = 10;
-		private var _speedRotMin:Number = -10;
-		private var _speedRotMax:Number = 10;
-		private var _scaleMin:Number = 0.1;
-		private var _scaleMax:Number = 1.0;
-		private var _durationMin:Number = 0.05;
-		private var _durationMax:Number = 0.1;
-		private var _lengthFlight:Number = 600;
-		private var _xPos:Number = 0;
-		private var _yPos:Number = 0;
+		public var particleClass:Class = Particle;
+		public var countMax:int = 50;
+		public var baseAngle:Number = -90;
+		public var ampAngle:Number = 180;
+		public var speedMin:Number = 1;
+		public var speedMax:Number = 10;
+		public var speedRotMin:Number = -10;
+		public var speedRotMax:Number = 10;
+		public var scaleMin:Number = 0.1;
+		public var scaleMax:Number = 1.0;
+		public var durationMin:Number = 0.05;
+		public var durationMax:Number = 0.1;
+		public var lengthFlight:Number = 600;
+		public var xPos:Number = 0;
+		public var yPos:Number = 0;
+		
 		private var _timer:int;
 		
 		public function Firework() {
-			if (stage) addedHandler(null)
-				else addEventListener(Event.ADDED_TO_STAGE, addedHandler);
-		}
-		
-		private function addedHandler(e:Event):void {
-			if (e) removeEventListener(Event.ADDED_TO_STAGE, addedHandler);
+			//initialize some vars?
 		}
 		
 		public function run():void {
@@ -47,8 +43,8 @@ package ua.alexvoz.tools {
 		}
 		
 		private function startGenerate():void {
-			if (this.numChildren < _countMax) newParticle();
-			var _duration:Number = _durationMin + Math.random() * (_durationMax - _durationMin);
+			if (this.numChildren < countMax) newParticle();
+			var _duration:Number = durationMin + Math.random() * (durationMax - durationMin);
 			_timer = setTimeout(startGenerate, _duration * 1000);
 		}
 		
@@ -57,20 +53,19 @@ package ua.alexvoz.tools {
 		}
 		
 		private function newParticle():void {
-			var _particle:DisplayObject = new _particleClass();
+			var _particle:DisplayObject = new particleClass();
 			if (_particle is MovieClip) 
 				try { if (_particle['totalFrames'] > 1) _particle['gotoAndStop'](Math.round(Math.random() * _particle['totalFrames']));
 				} catch (e:Error) { trace(e.message) };
 			var _mc:MovieClip = new MovieClip();
 			_mc.addChild(_particle);
-			_mc.angle = _baseAngle - _ampAngle/2 + Math.round(Math.random() * _ampAngle);
+			_mc.angle = baseAngle - ampAngle/2 + Math.round(Math.random() * ampAngle);
 			_mc.rotation = Math.round(Math.random() * 360);
-			_mc.scaleX = _mc.scaleY = _scaleMin + Math.random() * (_scaleMax - _scaleMin);
-			_mc.speed = _speedMin + (_mc.scaleX / _scaleMax) * (_speedMax - _speedMin);
-			_mc.speedRot = _speedRotMin + Math.round(Math.random() * (_speedRotMax - _speedRotMin));
-			//_mc.addEventListener(Event.ENTER_FRAME, moveParticle);
-			_mc.x = _xPos;
-			_mc.y = _yPos;
+			_mc.scaleX = _mc.scaleY = scaleMin + Math.random() * (scaleMax - scaleMin);
+			_mc.speed = speedMin + (_mc.scaleX / scaleMax) * (speedMax - speedMin);
+			_mc.speedRot = speedRotMin + Math.round(Math.random() * (speedRotMax - speedRotMin));
+			_mc.x = xPos;
+			_mc.y = yPos;
 			addChild(_mc);
 		}
 		
@@ -83,132 +78,12 @@ package ua.alexvoz.tools {
 				_mc.x += _deltaX;
 				_mc.y += _deltaY;
 				_mc.rotation += _mc.speedRot;
-				if (Math.sqrt(Math.pow(_mc.x, 2) + Math.pow(_mc.y, 2)) > _lengthFlight) {
-					_mc.removeEventListener(Event.ENTER_FRAME, moveParticle);
+				if (Math.sqrt(Math.pow(_mc.x, 2) + Math.pow(_mc.y, 2)) > lengthFlight) {
 					removeChild(_mc);
+					_mc = null;
 				}
 			}
 			if (this.numChildren == 0) removeEventListener(Event.ENTER_FRAME, moveParticle);
-		}
-		
-		public function get particleClass():Class {
-			return _particleClass;
-		}
-		
-		public function set particleClass(value:Class):void {
-			_particleClass = value;
-		}
-		
-		public function get countMax():int {
-			return _countMax;
-		}
-		
-		public function set countMax(value:int):void {
-			_countMax = value;
-		}
-		
-		public function get baseAngle():Number {
-			return _baseAngle;
-		}
-		
-		public function set baseAngle(value:Number):void {
-			_baseAngle = value;
-		}
-		
-		public function get ampAngle():Number {
-			return _ampAngle;
-		}
-		
-		public function set ampAngle(value:Number):void {
-			_ampAngle = value;
-		}
-		
-		public function get speedMin():Number {
-			return _speedMin;
-		}
-		
-		public function set speedMin(value:Number):void {
-			_speedMin = value;
-		}
-		
-		public function get speedMax():Number {
-			return _speedMax;
-		}
-		
-		public function set speedMax(value:Number):void {
-			_speedMax = value;
-		}
-		
-		public function get speedRotMin():Number {
-			return _speedRotMin;
-		}
-		
-		public function set speedRotMin(value:Number):void {
-			_speedRotMin = value;
-		}
-		
-		public function get speedRotMax():Number {
-			return _speedRotMax;
-		}
-		
-		public function set speedRotMax(value:Number):void {
-			_speedRotMax = value;
-		}
-		
-		public function get scaleMin():Number {
-			return _scaleMin;
-		}
-		
-		public function set scaleMin(value:Number):void {
-			_scaleMin = value;
-		}
-		
-		public function get scaleMax():Number {
-			return _scaleMax;
-		}
-		
-		public function set scaleMax(value:Number):void {
-			_scaleMax = value;
-		}
-		
-		public function get durationMin():Number {
-			return _durationMin;
-		}
-		
-		public function set durationMin(value:Number):void {
-			_durationMin = value;
-		}
-		
-		public function get durationMax():Number {
-			return _durationMax;
-		}
-		
-		public function set durationMax(value:Number):void {
-			_durationMax = value;
-		}
-		
-		public function get lengthFlight():Number {
-			return _lengthFlight;
-		}
-		
-		public function set lengthFlight(value:Number):void {
-			_lengthFlight = value;
-		}
-		
-		public function get xPos():Number {
-			return _xPos;
-		}
-		
-		public function set xPos(value:Number):void {
-			_xPos = value;
-		}
-		
-		public function get yPos():Number {
-			return _yPos;
-		}
-		
-		public function set yPos(value:Number):void {
-			_yPos = value;
 		}
 		
 	}
