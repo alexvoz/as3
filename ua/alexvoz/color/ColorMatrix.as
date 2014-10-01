@@ -14,7 +14,17 @@ package ua.alexvoz.color {
 	 * ICQ: 232-8-393-12
 	 * Skype: alexvozn
 	 */
-	 
+	
+	/* Usage
+	var colorMatrix:ColorMatrix = new ColorMatrix();
+	colorMatrix.{sameFilter}({needs vars});
+	colorMatrix.{sameOtherFilter}({needs vars});
+	...
+	colorMatrix.applyFilter(pic.bitmapData);
+	or
+	pic.bitmapData.applyFilter(pic.bitmapData, pic.bitmapData.rect, pic.bitmapData.rect.topLeft, colorMatrix.filter);
+	*/
+	
 	public class ColorMatrix {
 		public var matrix:Array;
 		
@@ -620,7 +630,7 @@ package ua.alexvoz.color {
 					0, 0, 0, 1, 0
 				]);
 		}
-    
+		
         /**
 		 * Инвертировать матрицу 2
 		 */
@@ -684,6 +694,54 @@ package ua.alexvoz.color {
 			if (b2 > 255) b2 = 255;
 			return a2<<24 | r2<<16 | g2<<8 | b2;
 		}
+		
+		/**
+		 * 
+		 */
+		public function RGB2YUV():void {
+			concatMatrix([ 
+				0.29900, 0.58700, 0.11400, 0, 0, 
+				-0.16874, -0.33126, 0.50000, 0, 128,
+				0.50000, -0.41869, -0.08131, 0, 128,
+				0, 0, 0, 1, 0
+			]);
+		}
+		
+		/**
+		 * 
+		 */
+		public function YUV2RGB():void {
+			concatMatrix([ 
+				1, -0.000007154783816076815, 1.4019975662231445, 0, -179.45477266423404,
+				1, -0.3441331386566162, -0.7141380310058594, 0,  135.45870971679688,
+				1, 1.7720025777816772, 0.00001542569043522235, 0, -226.8183044444304,
+				0, 0, 0, 1, 0
+			]);
+		}
+		
+		/**
+		 * 
+		 */
+		public function RGB2YIQ():void {
+			concatMatrix([ 0.2990,  0.5870,  0.1140, 0, 0,
+				0.595716, -0.274453, -0.321263, 0, 128,
+				0.211456, -0.522591, -0.311135, 0, 128,
+				0, 0, 0, 1, 0
+			]);
+		}                        
+		
+		/**
+		 * 
+		 */
+		public function YIQ2RGB():void {
+			concatMatrix([
+				1, -0.000007154783816076815, 1.4019975662231445, 0, -179.45477266423404,
+				1, -0.3441331386566162, -0.7141380310058594, 0,  135.45870971679688,
+				1, 1.7720025777816772, 0.00001542569043522235, 0, -226.8183044444304,
+				0, 0, 0, 1, 0
+			]);
+		}
+		
 		
 		/**
 		 * ???
