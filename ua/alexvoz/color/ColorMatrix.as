@@ -821,11 +821,11 @@ package ua.alexvoz.color {
 		public function shearRed(green:Number, blue:Number):void {
 			shearColor(0, 1, green, 2, blue);
 		}
-    
+		
 		public function shearGreen(red:Number, blue:Number):void {
 			shearColor(1, 0, red, 2, blue);
 		}
-    
+		
 		public function shearBlue(red:Number, green:Number):void {
 			shearColor(2, 0, red, 1, green);
 		}
@@ -840,11 +840,11 @@ package ua.alexvoz.color {
 		public function rotateRed(degrees:Number):void {
 			rotateColor(degrees, 2, 1); 
 		}
-    
+		
 		public function rotateGreen(degrees:Number):void {
 			rotateColor(degrees, 0, 2); 
 		}
-    
+		
 		public function rotateBlue(degrees:Number):void {
 			rotateColor(degrees, 1, 0); 
 		}
@@ -857,7 +857,7 @@ package ua.alexvoz.color {
 			_matrix[x + y * 5] = -Math.sin(degrees);
 			concatMatrix(_matrix);
 		}
-        
+		
 	}
-    
+	
 }
