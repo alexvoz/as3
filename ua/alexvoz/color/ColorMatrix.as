@@ -109,14 +109,14 @@ package ua.alexvoz.color {
 		 * @param	bitmapData - BitmapData
 		 */
 		public function applyFilter(bitmapData:BitmapData):void {
-			bitmapData.applyFilter( bitmapData, bitmapData.rect, new Point(), filter);
+			bitmapData.applyFilter(bitmapData, bitmapData.rect, new Point(), filter);
 		}
 		
 		/**
 		 * Инвертирование матрицы
 		 */
 		public function invert():void {
-            concatMatrix([ 
+			concatMatrix([ 
 				-1, 0, 0, 0, 255,
 				0, -1, 0, 0, 255,
 				0, 0, -1, 0, 255,
@@ -143,7 +143,7 @@ package ua.alexvoz.color {
 				irlum, iglum, (iblum + s), 0, 0, 
 				0, 0, 0, 1, 0
 			]);
-        }
+        	}
 		
 		/**
 		 * Констраст изображения. [-1.0..1.0] (-1 - чисто-серый)
@@ -180,7 +180,7 @@ package ua.alexvoz.color {
 				0, 0, 1, 0, b, 
 				0, 0, 0, 1, 0
 			]);
-        }
+        	}
 		
 		/**
 		 * Обесцвечивание (по цветовым каналам) [0..Infinity] (0 - канал отключен)
@@ -350,7 +350,7 @@ package ua.alexvoz.color {
 				0, 0, factor, 0, (-(factor-1) * threshold), 
 				0, 0, 0, 1, 0
 			]);
-        }
+		}
 		
 		/**
 		 * Граничные значения прозрачности
@@ -631,7 +631,7 @@ package ua.alexvoz.color {
 				]);
 		}
 		
-        /**
+		/**
 		 * Инвертировать матрицу 2
 		 */
 		public function invertMatrix():Boolean {
@@ -771,7 +771,7 @@ package ua.alexvoz.color {
 				var worstMax:Number = maxFactor * 255;
 				matrix[i * 5 + 4] = -(worstMin + (worstMax - worstMin) * 0.5 - 127.5);
 			}
-    }
+		}
 		
 		
 		/**
