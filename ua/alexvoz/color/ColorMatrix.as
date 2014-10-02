@@ -4,7 +4,6 @@ package ua.alexvoz.color {
 	import flash.display.DisplayObjectContainer;
 	import flash.filters.ColorMatrixFilter;
 	import flash.geom.Matrix3D;
-	import flash.geom.Point;
 	
 	/**
 	 * ...
@@ -107,12 +106,12 @@ package ua.alexvoz.color {
 		}
 		
 		/**
-		 * Применить матрицу к BitmapData
+		 * Применить матрицу к объекту
 		 * @param	targetObj - Bitmap, BitmapData, DisplayObjectContainer
 		 */
 		public function applyFilter(targetObj:Object):void {
-			if (targetObj is Bitmap) targetObj['bitmapData'].applyFilter(targetObj['bitmapData'], targetObj['bitmapData'].rect, new Point(), filter);
-			if (targetObj is BitmapData) targetObj['applyFilter'](targetObj, targetObj['rect'], new Point(), filter);
+			if (targetObj is Bitmap) targetObj['bitmapData'].applyFilter(targetObj['bitmapData'], targetObj['bitmapData'].rect, targetObj['bitmapData'].rect.topLeft, filter);
+			if (targetObj is BitmapData) targetObj['applyFilter'](targetObj, targetObj['rect'], targetObj['rect'].topLeft, filter);
 			if (targetObj is DisplayObjectContainer) {
 					var _arr:Array = targetObj['filters'];
 					_arr.push(filter);
