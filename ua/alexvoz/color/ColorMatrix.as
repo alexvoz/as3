@@ -865,7 +865,7 @@ package ua.alexvoz.color {
 			_matrix[x + y * 5] = -Math.sin(degrees);
 			concatMatrix(_matrix);
 		}
-        
+		
 	}
-    
+	
 }
