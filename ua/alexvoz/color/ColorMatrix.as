@@ -2,7 +2,6 @@ package ua.alexvoz.color {
 	import flash.display.Bitmap;
 	import flash.display.BitmapData;
 	import flash.display.DisplayObjectContainer;
-	import flash.display.Sprite;
 	import flash.filters.ColorMatrixFilter;
 	import flash.geom.Matrix3D;
 	import flash.geom.Point;
