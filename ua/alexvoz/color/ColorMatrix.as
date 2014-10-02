@@ -1,5 +1,8 @@
 package ua.alexvoz.color {
+	import flash.display.Bitmap;
 	import flash.display.BitmapData;
+	import flash.display.DisplayObjectContainer;
+	import flash.display.Sprite;
 	import flash.filters.ColorMatrixFilter;
 	import flash.geom.Matrix3D;
 	import flash.geom.Point;
@@ -106,10 +109,16 @@ package ua.alexvoz.color {
 		
 		/**
 		 * Применить матрицу к BitmapData
-		 * @param	bitmapData - BitmapData
+		 * @param	targetObj - Bitmap, BitmapData, DisplayObjectContainer
 		 */
-		public function applyFilter(bitmapData:BitmapData):void {
-			bitmapData.applyFilter(bitmapData, bitmapData.rect, new Point(), filter);
+		public function applyFilter(targetObj:Object):void {
+			if (targetObj is Bitmap) targetObj['bitmapData'].applyFilter(targetObj['bitmapData'], targetObj['bitmapData'].rect, new Point(), filter);
+			if (targetObj is BitmapData) targetObj['applyFilter'](targetObj, targetObj['rect'], new Point(), filter);
+			if (targetObj is DisplayObjectContainer) {
+					var _arr:Array = targetObj['filters'];
+					_arr.push(filter);
+					targetObj['filters'] = _arr;
+			}
 		}
 		
 		/**
@@ -857,7 +866,7 @@ package ua.alexvoz.color {
 			_matrix[x + y * 5] = -Math.sin(degrees);
 			concatMatrix(_matrix);
 		}
-		
+        
 	}
-	
+    
 }
