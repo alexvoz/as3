@@ -35,16 +35,16 @@ package ua.alexvoz.color {
 			0, 0, 1, 0, 0,
 			0, 0, 0, 1, 0
 		];
-		public const COLOR_DEFICIENCY_TYPES:Array = [
-			'Protanopia',
-			'Protanomaly',
-			'Deuteranopia',
-			'Deuteranomaly',
-			'Tritanopia',
-			'Tritanomaly',
-			'Achromatopsia',
-			'Achromatomaly'
-		];
+		
+		public static const COLOR_DEFICIENCY_PROTANOPIA:String = "Protanopia";
+		public static const COLOR_DEFICIENCY_PROTANOMALY:String = "Protanomaly";
+		public static const COLOR_DEFICIENCY_DEUTERANOPIA:String = "Deuteranopia";
+		public static const COLOR_DEFICIENCY_DEUTERANOMALY:String = "Deuteranomaly";
+		public static const COLOR_DEFICIENCY_TRITANOPIA:String = "Tritanopia";
+		public static const COLOR_DEFICIENCY_TRITANOMALY:String = "Tritanomaly";
+		public static const COLOR_DEFICIENCY_ACHROMATOPSIA:String = "Achromatopsia";
+		public static const COLOR_DEFICIENCY_ACHROMATOMALY:String = "Achromatomaly";
+		
 		private static const LUMA_R:Number = 0.212671;
 		private static const LUMA_G:Number = 0.71516;
 		private static const LUMA_B:Number = 0.072169;
