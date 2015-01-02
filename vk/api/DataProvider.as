@@ -8,7 +8,8 @@ package vk.api {
   
   public class DataProvider {    
 	private var _api_sid: String;
-	private var _api_url: String = "http://api.vkontakte.ru/api.php";
+	//private var _api_url: String = "http://api.vkontakte.ru/api.php";
+	private var _api_url: String = "http://vk.com/api.php";
     private var _api_id: Number;
     private var _api_secret: String;
     private var _viewer_id: Number;
@@ -73,8 +74,8 @@ package vk.api {
       var loader:URLLoader = new URLLoader();
       loader.dataFormat = URLLoaderDataFormat.TEXT;
       if (options.onError) {
-        loader.addEventListener(IOErrorEvent.IO_ERROR, function():void {
-          options.onError("Connection error occured");
+        loader.addEventListener(IOErrorEvent.IO_ERROR, function(e:Event):void {
+          options.onError("Connection error occured" + e['text']);
         });
         loader.addEventListener(SecurityErrorEvent.SECURITY_ERROR, function():void {
           options.onError("Security error occured");

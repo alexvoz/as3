@@ -51,8 +51,7 @@ import flash.display.BitmapData;
 		 * @param	width	ширина карты
 		 * @param	height 	высота карты
 		 */
-		public function RippleMap(width:int, height:int) 
-		{
+		public function RippleMap(width:int, height:int) {
 			_width = width;
 			_height = height;
 			_quartRect = new Rectangle(0, 0, _width/2,_height/2);
@@ -67,19 +66,16 @@ import flash.display.BitmapData;
 			_dampFilter = new ColorTransform(0, 0, 0.99609374, 1, 0, 0, 2, 0);
 			_dampFilter = new ColorTransform(0, 0, 0.995, 1, 0, 0, 2, 0);
 			
-			
-			
-			_filter = new DisplacementMapFilter (new BitmapData(_width, _height, false, 128), ORIGIN, 4, 4, 32, 32, DisplacementMapFilterMode.IGNORE);
-			
+			_filter = new DisplacementMapFilter(new BitmapData(_width, _height, false, 128), ORIGIN, 4, 4, 32, 32, DisplacementMapFilterMode.IGNORE);
 		}
 		
 		/**
 		 * пересчет карты
 		 */
-		public function render ():void{
+		public function render ():void {
 			
 			_resBmd.applyFilter (_mapBmd, _quartRect, ORIGIN, _waveFilter);
-			_resBmd.draw(_resBmd,_mtrx1,null,BlendMode.ADD);
+			_resBmd.draw(_resBmd, _mtrx1, null, BlendMode.ADD);
 			_resBmd.draw (_bufBmd, _mtrx1, null, BlendMode.DIFFERENCE);
 			_resBmd.draw (_resBmd, _mtrx1, _dampFilter);
 			
@@ -87,21 +83,17 @@ import flash.display.BitmapData;
 			_bufBmd = _mapBmd;
 			_mapBmd = _resBmd.clone();
 		}
-	
-
+		
 		/**
 		 * возвращает девственное состояние
 		 */
 		public function clear():void {
-			
 			_resBmd = new BitmapData (_width, _height, false, 128);
 			_mapBmd = new BitmapData (_width, _height, false, 128);
 			_bufBmd = new BitmapData (_width, _height, false, 128);
 			_waveFilter = new ConvolutionFilter (3, 3, [1, 1, 1, 1, 1, 1, 1, 1, 1] , 9, 0);
 			_dampFilter = new ColorTransform (0, 0, 0.99609374, 1, 0, 0, 2, 0);
-			
 			_filter.mapBitmap = new BitmapData(_width, _height, false, 128);
-			
 		}
 		/**
 		 * возмущение карты в точке [x,y]
@@ -112,7 +104,6 @@ import flash.display.BitmapData;
 		public function wobbleXY (x : int, y : int, d:int=1):void {
 			var dx:int = Math.round(x / 2);
 			var dy:int = Math.round(y / 2);
-		
 			_mapBmd.setPixel (dx + d, dy, 0xFFFFFF);
 			_mapBmd.setPixel (dx - d, dy, 0xFFFFFF);
 			_mapBmd.setPixel (dx, dy + d, 0xFFFFFF);
@@ -130,28 +121,21 @@ import flash.display.BitmapData;
 			}
 		}
 		
-		
-		
-		
 		/**
 		 * итоговый фильтр
 		 */
 		public function get filter():DisplacementMapFilter { return _filter; }
-		
 		
 		/**
 		 * коэффициент
 		 */
 		public function get scale():Number { return _scale; }
 		
-		public function set scale(value:Number):void 
-		{
+		public function set scale(value:Number):void {
 			_scale = value;
 			_filter.scaleX = 32 * value;
 			_filter.scaleY = 32 * value;
 		}
-		
-		
 		
 	}
 	

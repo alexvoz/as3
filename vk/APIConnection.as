@@ -32,7 +32,8 @@ package vk {
 	    connectionName = params[0];
 	  } else {
 	    connectionName = params[0].lc_name;
-		var api_url: String = 'http://api.vkontakte.ru/api.php';
+		//var api_url: String = 'http://api.vkontakte.ru/api.php';
+		var api_url: String = 'http://api.vk.com/api.php';
 		if (params[0].api_url) api_url = params[0].api_url;
 		dp = new DataProvider(api_url, params[0].api_id, params[0].sid, params[0].secret, params[0].viewer_id);
 	  }

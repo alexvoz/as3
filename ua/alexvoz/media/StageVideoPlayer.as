@@ -59,7 +59,6 @@ package ua.alexvoz.media {
          
         private function asyncErrorHandler(e:AsyncErrorEvent):void {
             dispatchEvent(new StageVideoPlayerEvents(StageVideoPlayerEvents.ERROR, e.error));
-            //trace(e.error);
         }
          
         public function playVideo():void {
@@ -85,6 +84,7 @@ package ua.alexvoz.media {
 				}
 			} else {
 				trace('Not ready!');
+				dispatchEvent(new StageVideoPlayerEvents(StageVideoPlayerEvents.ERROR, 'Video not ready'));
 			}
         }
          
@@ -102,7 +102,6 @@ package ua.alexvoz.media {
 				else if (_byteArray) _ns.play(null)
 					else dispatchEvent(new StageVideoPlayerEvents(StageVideoPlayerEvents.ERROR, 'URL or ByteArray are not available'));
             _ns.addEventListener(NetStatusEvent.NET_STATUS, statusHandler);
-			//_stage.addEventListener(Event.RESIZE, onResize);
         }
 		
 		public function get videoTime():Number {
@@ -122,13 +121,13 @@ package ua.alexvoz.media {
             if (e.info.code == "NetStream.Buffer.Full") {
 				//onResize(null);
 				if (_paused) _ns.pause();
-				dispatchEvent(new StageVideoPlayerEvents(StageVideoPlayerEvents.PLAY));
+				dispatchEvent(new StageVideoPlayerEvents(StageVideoPlayerEvents.PLAY, null));
 			}
             if (e.info.code == "NetStream.Play.Stop" || e.info.code == "NetStream.Buffer.Empty") {
-                dispatchEvent(new StageVideoPlayerEvents(StageVideoPlayerEvents.END));
+                dispatchEvent(new StageVideoPlayerEvents(StageVideoPlayerEvents.END, null));
             }
 			if (e.info.code == "NetStream.Pause.Notify") {
-                dispatchEvent(new StageVideoPlayerEvents(StageVideoPlayerEvents.PAUSE));
+                dispatchEvent(new StageVideoPlayerEvents(StageVideoPlayerEvents.PAUSE, null));
             }
         }
          

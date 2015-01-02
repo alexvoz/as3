@@ -1,8 +1,10 @@
 package ua.alexvoz.tools {
+	import fl.motion.Color;
 	import flash.display.DisplayObject;
 	import flash.display.MovieClip;
 	import flash.display.Sprite;
 	import flash.events.Event;
+	import flash.geom.ColorTransform;
 	
 	/**
 	 * ...
@@ -25,6 +27,7 @@ package ua.alexvoz.tools {
 		public var heightCont:Number;
 		public var chanceChange:Number = .05;
 		public var particleClass:Class = Particle;
+		public var alphaFlag:Boolean = true;
 		private var _vecParticles:Vector.<ParticleCont> = new Vector.<ParticleCont>();
 		
 		public function Dust(width:Number = 200, height:Number = 200) {
@@ -73,10 +76,12 @@ package ua.alexvoz.tools {
 				_vecParticles[i].y += _deltaY;
 				if (_vecParticles[i].x < 0 || _vecParticles[i].x > widthCont || _vecParticles[i].y < 0 || _vecParticles[i].y > heightCont) 
 					_vecParticles[i].angle = (_vecParticles[i].angle + 90) % 360;
-				if (Math.random() < chanceChange) {
-					_vecParticles[i].angle += randomValue(-ampAngle, ampAngle);
-					_vecParticles[i].speed = randomValue(minSpeed, maxSpeed);
-					_vecParticles[i].alpha = randomValue(minAlpha, maxAlpha);
+				if (alphaFlag) {
+					if (Math.random() < chanceChange) {
+						_vecParticles[i].angle += randomVa_mclue( -ampAngle, ampAngle);
+						var _alpha:Number = randomValue(minAlpha, maxAlpha);
+						_vecParticles[i].speed = randomValue(minSpeed, maxSpeed);
+					}
 				}
 			}
 		}
@@ -96,7 +101,7 @@ internal class Particle extends Shape {
 	static private const RADIUS:Number = 1;
 	
 	public function Particle() {
-		graphics.beginFill(0x999999);
+		graphics.beginFill(0xffffff);
 		graphics.drawCircle(RADIUS, RADIUS, RADIUS * 2);
 		graphics.endFill();
 	}
