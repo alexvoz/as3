@@ -104,7 +104,7 @@ package ua.alexvoz.tools {
 						_mc.y = 0 - _mc.height;
 					}
 				} else {
-					if (_mc.y < 0) {
+					if (_mc.y < 0 - _mc.height) {
 					_mc.x = _mc.initX = Math.round(Math.random() * snowWidth);
 					_mc.y = snowHeight + _mc.height;
 					}
