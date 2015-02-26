@@ -25,8 +25,8 @@ package ua.alexvoz.tools {
 		public var alphaMax:Number = 1; // максимальный уровень прозрачности
 		public var amplitudeMin:Number = 10; // максимальная амплитуда колебания
 		public var amplitudeMax:Number = 20; // максимальная амплитуда колебания
-		public var amplitudeTimeMin:Number = 2 // минимальное время одного колебания
-		public var amplitudeTimeMax:Number = 5; // максимальный время одного колебания
+		public var amplitudeTimeMin:Number = 2 // минимальный период одного колебания
+		public var amplitudeTimeMax:Number = 5; // максимальный период одного колебания
 		public var direction:Number = 1; // направление движения. вверх = -1, вниз = 1
 		public var rotateIt:Boolean = false; // флаг вращения в плоскости
 		public var rotateSpeedMin:Number = 5; // минимальная скорость вращения в плоскости
