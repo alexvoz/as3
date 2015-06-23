@@ -25,8 +25,8 @@ package ua.alexvoz.tools {
 		public var alphaMax:Number = 1; // максимальный уровень прозрачности
 		public var amplitudeMin:Number = 10; // максимальная амплитуда колебания
 		public var amplitudeMax:Number = 20; // максимальная амплитуда колебания
-		public var amplitudeTimeMin:Number = 2 // минимальный период одного колебания
-		public var amplitudeTimeMax:Number = 5; // максимальный период одного колебания
+		public var amplitudeTimeMin:Number = 2 // минимальное время одного колебания
+		public var amplitudeTimeMax:Number = 5; // максимальный время одного колебания
 		public var direction:Number = 1; // направление движения. вверх = -1, вниз = 1
 		public var rotateIt:Boolean = false; // флаг вращения в плоскости
 		public var rotateSpeedMin:Number = 5; // минимальная скорость вращения в плоскости
@@ -37,6 +37,8 @@ package ua.alexvoz.tools {
 		public var rotateYIt:Boolean = false; // флаг вращения в пространсве по оси Y
 		public var rotateYSpeedMin:Number = 5; // минимальная скорость вращения в пространсве по оси Y
 		public var rotateYSpeedMax:Number = 10; // максимальная скорость вращения в пространсве по оси Y
+		public var rateDecreaseSize:Number = 0; //0.005; темп уменьшния размера
+		public var rateDecreaseAlpha:Number = 0; //0.001; темп уменьшения прозрачности
 		
 		public function Snow(w:Number, h:Number) {
 			snowWidth = w;
@@ -65,7 +67,6 @@ package ua.alexvoz.tools {
 				_mc.speedY = Math.random() * (speedMax - speedMin) + speedMin;
 				_mc.amplitudeMax = amplitudeMin + Math.random() * (amplitudeMax - amplitudeMin);
 				_mc.amplitudeTime = (amplitudeTimeMin + Math.random() * (amplitudeTimeMax - amplitudeTimeMin)) * 10;
-				_mc.amplitudeF = Boolean(Math.round(Math.random()));
 				if (rotateIt) {
 					_mc.rotationZ = Math.random() * 360;
 					_mc.rotationSpeed = rotateSpeedMin + Math.random() * (rotateSpeedMax - rotateSpeedMin);
@@ -88,28 +89,15 @@ package ua.alexvoz.tools {
 				var _mc:ParticleCont = this.getChildAt(i) as ParticleCont;
 				_mc.y += _mc.speedY * direction;
 				_mc.x = _mc.initX + Math.cos(_mc.y / _mc.amplitudeTime) * _mc.amplitudeMax;
-				/*if (_mc.amplitudeF) {
-					_mc.x += _mc.amplitudeTime;
-					if (_mc.x >= _mc.initX + _mc.amplitudeMax) {
-						_mc.amplitudeF = false;
-					}
-				} else {
-					_mc.x -= _mc.amplitudeTime;
-					if (_mc.x <= _mc.initX - _mc.amplitudeMax) {
-						_mc.amplitudeF = true;
-					}
-				} */
-				if (direction > 0) {
-					if (_mc.y > snowHeight + _mc.height) {
-						_mc.x = _mc.initX = Math.round(Math.random() * snowWidth);
-						_mc.y = 0 - _mc.height;
-					}
-				} else {
-					if (_mc.y < 0 - _mc.height) {
+				if ((_mc.y > snowHeight + _mc.height) || (_mc.y < 0 - _mc.height)) {
 					_mc.x = _mc.initX = Math.round(Math.random() * snowWidth);
-					_mc.y = snowHeight + _mc.height;
-					}
+					_mc.scaleX = _mc.scaleY = Math.random() * (scaleMax - scaleMin) + scaleMin;
+					_mc.alpha = Math.random() * (alphaMax - alphaMin) + alphaMin;
+					if (direction > 0) _mc.y = 0 - _mc.height
+						else _mc.y = snowHeight + _mc.height;
 				}
+				_mc.alpha = Math.max(0, _mc.alpha - rateDecreaseAlpha);
+				_mc.scaleX = _mc.scaleY = Math.max(0 ,_mc.scaleX - rateDecreaseSize);
 				if (rotateIt) _mc.rotationZ += _mc.rotationSpeed;
 				if (rotateXIt) _mc.rotationX += _mc.rotationXSpeed;
 				if (rotateYIt) _mc.rotationY += _mc.rotationYSpeed;
@@ -147,7 +135,6 @@ internal class ParticleCont extends Sprite {
 	public var initY:Number;
 	public var speedY:Number;
 	public var amplitudeMax:Number;
-	public var amplitudeF:Boolean;
 	public var amplitudeTime:Number;
 	public var rotationSpeed:Number;
 	public var rotationXSpeed:Number;
